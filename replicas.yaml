@@ -20,4 +20,4 @@ spec:
         - name: name
           value: replicaset
         ports:
-        - containerPort: 80
+        - containerPort: 3000
