@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: exmaple-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-pod-label
+  template:
+    metadata:
+      name: example-pod
+      labels:
+        app: example-pod-label
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.15.0
+        ports:
+        - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-pod
+  template:
+    metadata:
+      name: hello-pod
+      labels:
+        app: hello-pod
+    spec:
+      containers:
+      - name: hello
+        image: kkw01234/k8s-test-node-server:0.0.1
+        env:
+        - name: name
+          value: replicaset
+        ports:
+        - containerPort: 80
